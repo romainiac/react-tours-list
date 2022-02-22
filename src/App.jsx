@@ -36,7 +36,17 @@ const App = () => {
     </main>
   ) : (
     <main>
-      <TourList tours={tours} removeTour={removeTour} />
+      {tours.length > 0 ? (
+        <TourList tours={tours} removeTour={removeTour} />
+      ) : (
+        <div className="title">
+          <h2>no tours left</h2>
+          <button className="btn" onClick={() => fetchTours()}>
+            {' '}
+            Refresh
+          </button>
+        </div>
+      )}
     </main>
   );
 };
