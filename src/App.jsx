@@ -7,6 +7,11 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [tours, setTours] = useState([]);
 
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
+
   useEffect(() => {
     fetchTours();
   }, []);
@@ -31,7 +36,7 @@ const App = () => {
     </main>
   ) : (
     <main>
-      <TourList tours={tours} />
+      <TourList tours={tours} removeTour={removeTour} />
     </main>
   );
 };
