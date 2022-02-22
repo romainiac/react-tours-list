@@ -31,7 +31,7 @@ const App = () => {
     </main>
   ) : (
     <main>
-      <TourList />
+      <TourList tours={tours} />
     </main>
   );
 };
